@@ -1,9 +1,6 @@
 package com.coding.jpa.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -31,5 +28,8 @@ public class Author {
 
     @ManyToMany(mappedBy = "authors")
     private List<Course> courses;
+
+    @OneToMany(mappedBy = "author_publication")
+    private List<Book> publications;
 
 }
